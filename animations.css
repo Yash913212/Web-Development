@@ -1,0 +1,57 @@
+.demo {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    /* animation-name: Myanimation;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    position: relative;
+    animation-delay: 2s; */
+    animation: Myanimation 4s linear 2s infinite alternate;
+    position: relative;
+}
+
+.demo1 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(34, 156, 190);
+    animation-name: Myanimation;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    position: relative;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+}
+
+@keyframes Myanimation {
+    /* from {
+        left: 0px;
+        background-color: black;
+        border-radius: 0px;
+    }
+    to {
+        left: 400px;
+        background-color: aquamarine;
+        border-radius: 100px;
+    } */
+    0% {
+        background-color: black;
+        left: 0px;
+    }
+    25% {
+        background-color: yellow;
+        left: 25px;
+    }
+    50% {
+        background-color: green;
+        left: 50px;
+    }
+    75% {
+        background-color: pink;
+        left: 75px;
+    }
+    100% {
+        background-color: skyblue;
+        left: 100px;
+    }
+}

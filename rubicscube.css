@@ -1,0 +1,69 @@
+body {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(111, 103, 103);
+}
+
+.gp {
+    perspective: 1000px;
+}
+
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: myframes 10s infinite linear;
+}
+
+.block {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* gap: 5px; */
+}
+
+.box {
+    border: 1px solid black;
+}
+
+@keyframes myframes {
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+.left {
+    transform: rotateY(90deg) translateZ(100px);
+    background-color: blue;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(-100px);
+    background-color: orange;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-color: red;
+}
+
+.bottom {
+    transform: rotateX(90deg) translateZ(-100px);
+    background-color: green;
+}
+
+.front {
+    transform: translateZ(100px);
+    background-color: white;
+}
+
+.back {
+    transform: translateZ(-100px);
+    background-color: yellow;
+}

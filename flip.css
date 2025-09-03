@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+
+.grandparent {
+    width: 200px;
+    height: 200px;
+    perspective: 200px;
+}
+
+.parent {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s linear;
+}
+
+.parent:hover {
+    transform: rotateY(180deg);
+}
+
+.front {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    background-color: #a52440;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.back {
+    color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    background-color: rgb(219, 176, 33);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    flex-direction: column;
+}

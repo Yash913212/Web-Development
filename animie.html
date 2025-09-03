@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 150px;
+            height: 150px;
+            background-color: yellowgreen;
+            animation-name: anime;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-timing-function: linear;
+        }
+        
+        .demo1 {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            animation: anime 2s infinite ease;
+            position: relative;
+        }
+        
+        .demo2 {
+            width: 150px;
+            height: 150px;
+            background-color: whitesmoke;
+            animation: anime 2s infinite ease-in;
+            position: relative;
+        }
+        
+        .demo3 {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(0, 0, 0);
+            animation: anime 2s infinite ease-out;
+            position: relative;
+        }
+        
+        .demo4 {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(58, 24, 246);
+            animation: anime 2s infinite ease-in-out;
+            position: relative;
+        }
+        
+        @keyframes anime {
+            from {
+                left: 0px;
+            }
+            to {
+                left: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+    <div class="demo1"></div>
+    <div class="demo2"></div>
+    <div class="demo3"></div>
+    <div class="demo4"></div>
+</body>
+
+</html>

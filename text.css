@@ -1,0 +1,53 @@
+/* .para{
+    text-align: justify;
+}
+.para1{
+    text-align-last: justify;
+}
+.para2{
+    direction: ltr;
+} */
+.para{
+    text-decoration-line: line-through ;
+    text-decoration-color:black;
+    color: pink;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 5px;
+}
+.para1{
+    text-decoration-line: underline;
+    color: cadetblue;
+    text-decoration-color:blue;
+    text-decoration-style: double;
+    text-decoration-thickness: 2px;
+}
+.para2{
+    text-decoration-line: overline;
+    color: green;
+    text-decoration-color:gold;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 3px;
+}
+.para3{
+    color: salmon;
+    text-decoration: underline overline red 3px;
+}
+.para4{
+    text-transform: capitalize;
+}
+.para5{
+   
+    word-spacing: 5px;
+}
+.para6{
+    letter-spacing: 5px;
+}
+.para7{
+    line-height: 50px;
+}
+.para8{
+    text-indent: 50px;
+}
+#yash{
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100svh;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation-name: hi;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-play-state: running;
+        }
+        
+        .box:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes hi {
+            0% {}
+            50% {
+                scale: 2;
+                transform: rotate(0);
+                border-radius: 0%;
+            }
+            100% {
+                scale: 2;
+                transform: rotate(360deg);
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">Boxluu</div>
+</body>
+
+</html>

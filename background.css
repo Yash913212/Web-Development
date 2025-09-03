@@ -1,0 +1,19 @@
+    .my_class {
+        width: 600px;
+        height: 600px;
+        border: 3px solid rgb(241, 138, 11);
+        background-image: url("./panda.jpg");
+        background-repeat: repeat;
+        /* background-repeat: repeat; */
+        /* background-repeat: repeat-x; */
+        /* background-repeat: repeat-y; */
+        background-position: top left;
+        background-position: top center;
+        background-position: top right;
+        background-position: center left;
+        background-position: center center;
+        background-position: center right;
+        background-position: bottom left;
+        background-position: bottom center;
+        background-position: bottom right;
+    }

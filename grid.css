@@ -1,0 +1,81 @@
+.parent {
+    width: 100%;
+    height: 500px;
+    border: 3px solid black;
+    background-color: lightgray;
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 2fr 1fr 2fr;
+}
+
+.child1 {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    align-self: center;
+    justify-self: center;
+}
+
+.child2 {
+    width: 100px;
+    height: 100px;
+    background-color: lightgreen;
+}
+
+.child3 {
+    width: 100px;
+    height: 100px;
+    background-color: lightcoral;
+}
+
+.child4 {
+    width: 100px;
+    height: 100px;
+    background-color: lightgoldenrodyellow;
+}
+
+.child {
+    border: 2px solid black;
+}
+
+.parent2 {
+    width: 100%;
+    height: 500px;
+    border: 3px solid black;
+    background-color: whitesmoke;
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: 40px;
+    grid-gap: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.child5 {
+    width: 100px;
+    height: 100px;
+    background-color: lightpink;
+}
+
+.child6 {
+    width: 100px;
+    height: 100px;
+    background-color: lightcyan;
+}
+
+.child7 {
+    width: 100px;
+    height: 100px;
+    background-color: lightyellow;
+}
+
+.child8 {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+}

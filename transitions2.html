@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            position: relative;
+        }
+        
+        .child {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            transition: transform 2s linear;
+            transform: skew(0deg);
+        }
+        
+        .child:hover {
+            transform: skew(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.myclass{
+    color: rgba(81, 255, 0,0.2);
+}
+.myclass2{
+    color: rgba(200, 200, 20,0.3);
+}
+.myclass3{
+    color: pink;
+}
+.myclass4{
+    color: hsla(75, 77%, 41%, 0.5);
+}
+.class5{
+    color: hsla(360, 10, 80, 0.8);
+}

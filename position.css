@@ -1,0 +1,70 @@
+/* .parent1 {
+    width: 100%;
+    height: 100px;
+    background-color: lightblue;
+}
+
+.parent2 {
+    width: 100%;
+    height: 100px;
+    background-color: lightgreen;
+}
+
+.child1 {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 20px;
+}
+
+.parent3 {
+    width: 100%;
+    height: 100px;
+    background-color: lightcoral;
+} */
+
+.parent1 {
+    width: 100%;
+    height: 300px;
+    background-color: lightblue;
+}
+
+.parent2 {
+    width: 100%;
+    height: 300%;
+    background-color: rgb(58, 107, 43);
+}
+
+.child1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.child2 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.child3 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.parent3 {
+    width: 100%;
+    height: 300px;
+    background-color: lightcoral;
+}
