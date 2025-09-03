@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrected Promises</title>
+</head>
+
+<body>
+    <script>
+        // --- CORRECTED FUNCTIONS ---
+        function fun1() {
+            // The delay (1000) is the second argument for setTimeout
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log("Fun-1 Completed");
+                    resolve("Data from Fun-1"); // Pass a value to the next .then()
+                }, 1000);
+            });
+        }
+
+        function fun2(value) {
+            console.log("Fun-2 received:", value); // See the value from fun1
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log("Fun-2 Completed");
+                    resolve("Data from Fun-2");
+                }, 1000);
+            });
+        }
+
+        function fun3(value) {
+            console.log("Fun-3 received:", value); // See the value from fun2
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log("Fun-3 Completed");
+                    resolve("All Done!");
+                }, 1000);
+            });
+        }
+
+        // --- CORRECT PROMISE CHAINING ---
+        // This is flat and easy to read ✅
+        fun1()
+            .then(function(resultFromFun1) {
+                // Return the next promise in the chain
+                return fun2(resultFromFun1);
+            })
+            .then(function(resultFromFun2) {
+                return fun3(resultFromFun2);
+            })
+            .then(function(finalResult) {
+                console.log("Final Result:", finalResult);
+            })
+            .catch(function(err) {
+                // A single .catch() handles errors from any part of the chain
+                console.error("An error occurred:", err);
+            });
+    </script>
+</body>
+
+</html>

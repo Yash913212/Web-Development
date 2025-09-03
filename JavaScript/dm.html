@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Rock Papper Sessor</p>
+    <button onclick="player()">Rock</button>
+    <button onclick="player2()">Paper</button>
+    <button onclick="player3()">Sessor</button>
+    <script>
+        function player() {
+            const random = Math.random();
+            let computerMove = '';
+
+            if (random >= 0 && random < 1 / 3) {
+                // console.log('rock');
+                computerMove = 'rock'
+            } else if (random >= 1 / 3 && random < 2 / 3) {
+                // console.log('paper');
+                computerMove = 'paper'
+            } else if (random >= 2 / 3 && random < 1) {
+                // console.log('Sessor');
+                computerMove = 'sessors';
+            }
+            console.log(computerMove);
+
+
+            let result = '';
+
+            if (computerMove === 'rock') {
+                result = 'tie';
+            } else if (computerMove === 'paper') {
+                result = 'lose';
+            } else if (computerMove === 'sessor') {
+                result = 'win';
+            }
+
+            alert(`You picked rock, computer picked ${computerMove}. ${result}`);
+        }
+
+        function player2() {
+            const random = Math.random();
+            let computerMove = '';
+
+            if (random >= 0 && random < 1 / 3) {
+                // console.log('rock');
+                computerMove = 'rock'
+            } else if (random >= 1 / 3 && random < 2 / 3) {
+                // console.log('paper');
+                computerMove = 'paper'
+            } else if (random >= 2 / 3 && random < 1) {
+                // console.log('Sessor');
+                computerMove = 'sessors';
+            }
+            console.log(computerMove);
+
+
+            let result = '';
+
+            if (computerMove === 'rock') {
+                result = 'win';
+            } else if (computerMove === 'paper') {
+                result = 'tie';
+            } else if (computerMove === 'sessor') {
+                result = 'lose';
+            }
+
+            alert(`You picked paper, computer picked ${computerMove}. ${result}`);
+        }
+
+        function player3() {
+            const random = Math.random();
+            let computerMove = '';
+
+            if (random >= 0 && random < 1 / 3) {
+                // console.log('rock');
+                computerMove = 'rock'
+            } else if (random >= 1 / 3 && random < 2 / 3) {
+                // console.log('paper');
+                computerMove = 'paper'
+            } else if (random >= 2 / 3 && random < 1) {
+                // console.log('Sessor');
+                computerMove = 'sessors';
+            }
+            console.log(computerMove);
+
+
+            let result = '';
+
+            if (computerMove === 'rock') {
+                result = 'lose';
+            } else if (computerMove === 'paper') {
+                result = 'win';
+            } else if (computerMove === 'sessor') {
+                result = 'Tie';
+            }
+
+            alert(`You picked sessor, computer picked ${computerMove}. ${result}`);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Empty Grid Generator</title>
+</head>
+
+<body>
+    <label>
+    Rows: <input type="number" id="rows" min="1" value="3">
+  </label>
+    <label>
+    Columns: <input type="number" id="cols" min="1" value="3">
+  </label>
+    <button onclick="createGrid()">Create Grid</button>
+
+    <div id="grid"></div>
+
+    <script>
+        function createGrid() {
+            const rows = parseInt(document.getElementById('rows').value) || 1;
+            const cols = parseInt(document.getElementById('cols').value) || 1;
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+
+            const table = document.createElement('table');
+            // table.setAttribute('display', flex);
+            table.setAttribute('border', '2');
+            table.setAttribute('cellspacing', '0');
+            table.setAttribute('cellpadding', '10');
+
+            for (let i = 1; i <= rows; i++) {
+                const tr = document.createElement('tr');
+                for (let j = 1; j <= cols; j++) {
+                    const td = document.createElement('td');
+                    // Leave the cell empty
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            grid.appendChild(table);
+        }
+    </script>
+</body>
+
+</html>

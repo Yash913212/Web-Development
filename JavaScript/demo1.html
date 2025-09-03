@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover &mdash; Curated by Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #EAEAEA;
+            --primary-accent: #C0A062; /* Muted Gold */
+            --card-bg: #1D1D1D;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* --- Custom Cursor --- */
+        .cursor {
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--primary-accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none; /* Allows clicking through the cursor */
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+            z-index: 9999;
+        }
+        
+        .cursor.hovered {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(192, 160, 98, 0.2);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            font-family: var(--font-body);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-accent);
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        nav a:hover::after, .cursor-hover-target:hover ~ nav a::after {
+            width: 100%;
+        }
+
+        .discover-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            grid-auto-flow: dense;
+            gap: 1.5rem;
+            padding: 2rem 4rem;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: var(--card-bg);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card.wide { grid-column: span 2; }
+        .card.tall { grid-row: span 2; }
+        .card.large { grid-column: span 2; grid-row: span 2; }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translateY(50%);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s ease;
+        }
+
+        .card-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card:hover .card-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cursor"></div>
+
+    <header>
+        <div class="logo">Etherea</div>
+        <nav>
+            <a href="#" class="cursor-hover-target">Destinations</a>
+            <a href="#" class="cursor-hover-target">Art</a>
+            <a href="#" class="cursor-hover-target">Moments</a>
+            <a href="#" class="cursor-hover-target">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="discover-grid">
+            <div class="card tall cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1534320309038-3c6498a445b2?q=80&w=1887" alt="Serene coastline">
+                <div class="card-content"><h3>Coastal Serenity</h3><p>Where the cliffs meet the endless blue.</p></div>
+            </div>
+            <div class="card cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1542382494-845722363973?q=80&w=1887" alt="Abstract architecture">
+                <div class="card-content"><h3>Urban Geometry</h3><p>Lines and shadows in the concrete world.</p></div>
+            </div>
+            <div class="card wide cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070" alt="Misty mountains">
+                <div class="card-content"><h3>Misty Peaks</h3><p>The timeless whisper of the mountains.</p></div>
+            </div>
+            <div class="card large cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1517547196234-18c3de14feb3?q=80&w=1964" alt="Woman in a red dress">
+                <div class="card-content"><h3>Crimson Flow</h3><p>A study in movement and color.</p></div>
+            </div>
+            <div class="card wide cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070" alt="Wooden pier on a lake">
+                <div class="card-content"><h3>Silent Waters</h3><p>Reflections on a glass-like surface.</p></div>
+            </div>
+            <div class="card cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-155472122-8355f3113576?q=80&w=1887" alt="Vibrant street art">
+                <div class="card-content"><h3>Canvas City</h3><p>Stories told on walls of brick and plaster.</p></div>
+            </div>
+             <div class="card cursor-hover-target">
+                <img src="https://images.unsplash.com/photo-1476837579993-f707a82a3962?q=80&w=1887" alt="Ancient library">
+                <div class="card-content"><h3>Ancient Knowledge</h3><p>Echoes of history in written words.</p></div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Etherea. Crafted with 15 years of passion.</p>
+    </footer>
+
+    <script>
+        // --- Custom Cursor Logic ---
+        const cursor = document.querySelector('.cursor');
+        const hoverTargets = document.querySelectorAll('.cursor-hover-target');
+
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+            });
+            target.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+            });
+        });
+
+
+        // --- Scroll Animation Logic using Intersection Observer ---
+        const cards = document.querySelectorAll('.card');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+
+    </script>
+</body>
+</html>

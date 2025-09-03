@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Follower</title>
+    <style>
+        body {
+            cursor: none;
+            background-color: #000000;
+        }
+
+        #follower {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #2A3D66;
+            border-radius: 50%;
+            background: conic-gradient(rgb(255, 255, 255),rgb(88, 170, 98),rgb(1, 183, 255)); /* Makes it a circle */
+            position: fixed; /* Stays on the screen */
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="follower"></div>
+
+    <script>
+        const follower = document.getElementById('follower');
+
+        window.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            // Update the follower's position to match the cursor
+            follower.style.left = `${x}px`;
+            follower.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
