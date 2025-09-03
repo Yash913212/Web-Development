@@ -1,0 +1,111 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #d9def3, #79d2e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    width: 400px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 32px 24px;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #e0f7fa, white);
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 24px;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    margin-bottom: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    padding: 6px 0;
+}
+
+.input-icon-group {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon-group i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #79d2e7;
+    font-size: 1.1em;
+}
+
+.input-icon-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    font-size: 1em;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    margin-bottom: 0;
+    display: block;
+}
+
+.input-icon-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #DFF4E9;
+}
+
+.box2 {
+    width: 100%;
+    padding: 12px;
+    background-color: #79d2e7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.box2:hover {
+    background-color: #5bb8d7;
+}
+
+.links {
+    margin-top: 18px;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+.links a {
+    color: #79d2e7;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.links a:hover {
+    color: #91c8de;
+}

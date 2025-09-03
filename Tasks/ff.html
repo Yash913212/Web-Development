@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #F0F0F6;
+        }
+        
+        .navbar {
+            width: 1440px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #F0F0F6;
+            padding: 38px 96px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            background-color: #F0F0F6;
+            width: 158px;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo2 {
+            background-color: #F0F0F6;
+            width: 603px;
+            height: 75px;
+            gap: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .home,
+        .home1 {
+            min-width: 90px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        
+        .home1 {
+            background-color: orange;
+            color: #fff;
+            font-weight: bold;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+        
+        .home:hover {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="./Rectangle 181.png" alt="img" style="max-width:100%;max-height:100%;">
+        </div>
+        <div class="logo2">
+            <div class="home1">Home</div>
+            <div class="home">Skills</div>
+            <div class="home">Education</div>
+            <div class="home">Projects</div>
+            <div class="home">Recommendations</div>
+            <div class="home">Contact</div>
+        </div>
+    </div>
+</body>
+
+</html>

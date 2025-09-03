@@ -1,0 +1,81 @@
+body{
+    background-color: lightslategray;
+}
+.commonman{
+    color: rgb(15, 18, 1);
+    text-align: justify;
+    text-align-last:left;
+    direction: ltr;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-transform: capitalize;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-indent: 50px;
+
+}
+.lol{
+    text-align: center;
+    text-indent: 2px;
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+}
+.hello1{
+    text-decoration-line: underline ;
+    line-height: 5px;
+    text-decoration-color:black;
+   color: rgb(9, 65, 16);
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-transform: capitalize;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    text-indent: 2px;
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+
+}
+.hello2{
+    text-decoration-line: underline;
+    line-height: 5px;
+    text-decoration-color:black;
+    color: rgb(9, 65, 16);
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    direction: ltr;
+    text-transform: capitalize;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    text-indent: 2px;
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+}
+.hello3{
+    text-decoration-line: underline;
+    line-height: 5px;
+    text-decoration-color:black;
+    color: rgb(9, 65, 16);
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    direction: ltr;
+    text-transform: capitalize;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    text-indent: 2px;
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+}
+.hello4{
+    text-decoration-line: underline;
+    line-height: 5px;
+    text-decoration-color:black;
+   color: rgb(9, 65, 16);
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    direction: ltr;
+    text-transform: capitalize;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    text-indent: 2px;
+    text-shadow: 1px 2px 1px rgba(32, 184, 218, 0.4);
+}
+.src{
+    text-shadow: 2px 2px;
+}

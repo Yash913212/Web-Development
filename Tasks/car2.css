@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, rgb(140, 235, 224), rgb(255, 217, 0));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    animation: background 10s ease-in-out 1s infinite alternate;
+}
+
+.scene {
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    position: relative;
+    border: 2px solid rgb(40, 40, 40);
+}
+
+.sun {
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    animation: mysun 10s infinite alternate;
+}
+
+.tree {
+    position: absolute;
+    bottom: 100px;
+}
+
+.trunk {
+    width: 30px;
+    height: 150px;
+    background-color: brown;
+    margin-left: 25px;
+}
+
+.leaves {
+    width: 60px;
+    height: 60px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    right: -10px;
+}
+
+.leaves2 {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: -10px;
+}
+
+.leaves3 {
+    width: 60px;
+    height: 60px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: -60px;
+    right: -30px;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.line {
+    width: 60px;
+    height: 20px;
+    background-color: white;
+}
+
+.car {
+    position: absolute;
+    top: 510px;
+    left: 1400px;
+    animation: mycar 8s linear infinite;
+}
+
+.bird {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    animation: mybird 10s linear infinite;
+}
+
+.cloud {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    animation: mycloud 10s linear infinite;
+}
+
+@keyframes mycar {
+    0% {
+        right: 0px;
+    }
+    50% {
+        right: 50px;
+    }
+    100% {
+        left: 100px;
+    }
+}
+
+@keyframes mybird {
+    0% {
+        left: 0;
+        top: 200px;
+    }
+    50% {
+        left: 80%;
+        top: 300px;
+    }
+    100% {
+        left: 100%;
+        top: 500px;
+    }
+}
+
+@keyframes mycloud {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 90%;
+    }
+}
+
+@keyframes mysun {
+    0% {
+        background-color: gold;
+        box-shadow: 0 0 20px 10px gold;
+        top: 100px;
+    }
+    100% {
+        background-color: white;
+        top: 10px;
+    }
+}
+
+@keyframes background {
+    0% {
+        background-image: linear-gradient(rgb(137, 210, 242), gold)
+    }
+    25% {
+        background-image: linear-gradient(skyblue, gold);
+    }
+    50% {
+        background-image: linear-gradient(rgb(81, 99, 107), rgb(43, 44, 30));
+    }
+    75% {
+        background-image: linear-gradient(rgb(47, 46, 46), rgb(27, 25, 25));
+    }
+    100% {
+        background-image: linear-gradient(rgb(57, 55, 55), black);
+    }
+}

@@ -1,0 +1,51 @@
+body {
+    background-color: #111;
+    font-family: 'Share Tech Mono', monospace;
+    color: #fff;
+}
+
+.calculator {
+    width: 320px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+#display {
+    width: 95%;
+    height: 50px;
+    font-size: 40px;
+    text-align: right;
+    padding: 10px;
+    background: #000;
+    color: #0f0;
+    border-radius: 50px;
+    letter-spacing: 2px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    background: #333;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.btn:nth-child(1) {
+    background: #e74c3c;
+}
+
+.btn:nth-child(20) {
+    background: #27ae60;
+}

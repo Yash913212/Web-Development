@@ -1,0 +1,49 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+}
+
+.orbit {
+    width: 360px;
+    height: 360px;
+    position: relative;
+    /* Optional: show orbit path */
+    /* border: 1px dashed #444; */
+}
+
+.demo1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: blueviolet;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.demo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(121, 104, 136);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: solar 2s linear infinite;
+    z-index: 1;
+}
+
+@keyframes solar {
+    0% {
+        transform: rotateZ(0deg) translateX(150px);
+    }
+    100% {
+        transform: rotateZ(360deg) translateX(150px);
+    }
+}

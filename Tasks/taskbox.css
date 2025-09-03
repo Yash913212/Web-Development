@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.room {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg) rotateY(0deg);
+}
+
+.wall {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.back {
+    width: 300px;
+    height: 300px;
+    transform: translateZ(-150px);
+}
+
+.left {
+    width: 300px;
+    height: 300px;
+    transform: rotateY(90deg) translateZ(-150px);
+    transform-origin: left center;
+}
+
+.right {
+    width: 300px;
+    height: 300px;
+    transform: rotateY(-90deg) translateZ(-150px);
+    transform-origin: right center;
+}
+
+.top {
+    width: 300px;
+    height: 300px;
+    transform: rotateX(100deg) translateZ(-150px);
+    transform-origin: top bottom;
+}
+
+.bottom {
+    width: 300px;
+    height: 300px;
+    transform: rotateX(-90deg) translateZ(-150px);
+    transform-origin: bottom bottom;
+}

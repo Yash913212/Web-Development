@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    background-color: beige;
+    padding: 25px;
+    border-radius: 50px;
+    max-width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.chip {
+    width: 30px;
+    height: 20px;
+}

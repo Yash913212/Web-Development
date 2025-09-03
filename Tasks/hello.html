@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: 'Segoe UI', sans-serif;
+    }
+    
+    header {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+    }
+    
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: blue;
+    }
+    
+    nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+    
+    nav a:hover {
+        padding: 10px;
+        border: 2px solid blue;
+        box-shadow: 0px 0px 2px 2px blue;
+        border-radius: 10%;
+    }
+    
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4rem 2rem;
+        background-color: rgb(255, 242, 247);
+        flex-wrap: wrap;
+    }
+    
+    .hero-text {
+        max-width: 600px;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+    }
+    
+    .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .cta-button:hover {
+        transform: scale(1.05);
+        background-color: #4e56d6;
+    }
+    
+    .hero img {
+        max-width: 400px;
+        height: auto;
+        margin-top: 2rem;
+    }
+    
+    .sections {
+        display: grid;
+        grid-template-columns: repeat(1fr);
+        gap: 32px;
+        padding: 64px 32px;
+    }
+    
+    .card {
+        background-color: white;
+        border-left: 5px solid black;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 32px;
+    }
+    
+    .card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card h2 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        color: blue;
+    }
+    
+    .card ul {
+        padding-left: 1.2rem;
+    }
+</style>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SkillSwap Pro – Learn. Exchange. Get Hired.</title>
+        <link rel="stylesheet" href="./SkillSwap.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">SkillSwap Pro</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Discover</a>
+                <a href="#">My Roadmaps</a>
+                <a href="#">Career Tools</a>
+                <a href="#">Sign In</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Learn. Exchange. Get Hired.</h1>
+                <p>Showcase your skills, connect with mentors, and use AI-powered tools to prepare for your career.</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+            <img src="https://via.placeholder.com/400x300" alt="Skill exchange illustration" />
+        </section>
+
+        <section class="sections">
+            <div class="card">
+                <h2>User Portfolio System</h2>
+                <ul>
+                    <li>Skill badges (offered & acquired)</li>
+                    <li>Project showcases</li>
+                    <li>Resume upload</li>
+                    <li>Auto-generated “Skill Cards”</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Job Platform Integration</h2>
+                <ul>
+                    <li>LinkedIn, Naukri, Internshala APIs</li>
+                    <li>Skill-tag-based job redirection</li>
+                    <li>Smart “Apply Now” links</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Career Guidelines Hub</h2>
+                <ul>
+                    <li>Roadmaps & tutorials</li>
+                    <li>Resume tips, interview prep</li>
+                    <li>AI career assistant</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Smart Match + Tracker</h2>
+                <ul>
+                    <li>Peer-to-peer skill exchange</li>
+                    <li>Skill goal setting</li>
+                    <li>Progress dashboard</li>
+                </ul>
+            </div>
+        </section>
+    </body>
+
+    </html>
+</body>
+
+</html>
