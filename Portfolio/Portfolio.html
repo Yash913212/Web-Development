@@ -14,10 +14,55 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /* Scroll animation base styles */
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(60px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(.77, 0, .18, 1), transform 0.8s cubic-bezier(.77, 0, .18, 1);
+            will-change: opacity, transform;
+        }
+        
+        .scroll-animate.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        /* Optional: staggered effect for grid children */
+        
+        .skills-grid .skill-card,
+        .projects-grid .project-card {
+            transition-delay: 0.1s;
+        }
+        
+        .skills-grid .skill-card:nth-child(2),
+        .projects-grid .project-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .skills-grid .skill-card:nth-child(3),
+        .projects-grid .project-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .skills-grid .skill-card:nth-child(4),
+        .projects-grid .project-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .skills-grid .skill-card:nth-child(5),
+        .projects-grid .project-card:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .skills-grid .skill-card:nth-child(6),
+        .projects-grid .project-card:nth-child(6) {
+            transition-delay: 0.6s;
+        }
         
         body {
             font-family: 'Montserrat', Arial, sans-serif;
-            background: linear-gradient(120deg, #ff6b6b 0%, #43e97b 50%, #38f9d7 100%);
+            background: linear-gradient(120deg, #232526 0%, #414345 40%, #232526 100%), linear-gradient(120deg, #ff6b6b 0%, #43e97b 50%, #38f9d7 100%);
+            background-blend-mode: multiply, screen;
             background-size: 200% 200%;
             animation: bgMove 12s ease-in-out infinite;
             color: #fff;
@@ -531,6 +576,8 @@
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: rgba(255, 255, 255, 0.7);
+            color: #f9a826 !important;
+            color: #f9a826 !important;
         }
         
         .footer {
@@ -575,30 +622,263 @@
         
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 20px;
+                padding: 10px 8px;
             }
             .nav-links {
                 display: none;
             }
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
             }
             .section {
-                padding: 50px 20px;
+                padding: 30px 6px;
             }
             .section h2 {
-                font-size: 2rem;
+                font-size: 1.2rem;
             }
             .magic-orb {
-                width: 80px;
-                height: 80px;
+                width: 48px;
+                height: 48px;
             }
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+            }
+            .project-card {
+                max-width: 98vw !important;
+                margin: 0 auto !important;
+                padding: 0 2vw !important;
+            }
+            .project-image {
+                height: 120px !important;
+                font-size: 2.2rem !important;
+            }
+            .project-content h3 {
+                font-size: 1rem !important;
+            }
+            .project-content p {
+                font-size: 0.9rem !important;
+            }
+            .cta-button,
+            .view-resume-btn {
+                font-size: 0.9rem !important;
+                padding: 10px 12px !important;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+            }
+            .skill-card {
+                padding: 16px !important;
+            }
+            .contact-form {
+                max-width: 98vw !important;
+                padding: 0 2vw !important;
+            }
+        }
+        
+        body.white-theme {
+            background: linear-gradient(135deg, #f8fafc 0%, #fceabb 100%) !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 30%, #ffe6fa 0%, transparent 60%), radial-gradient(circle at 80% 70%, #e0f7fa 0%, transparent 60%), radial-gradient(circle at 60% 10%, #fffde4 0%, transparent 70%), radial-gradient(circle at 90% 20%, #ffe9c6 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        body.white-theme .white-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        body.white-theme .white-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.18;
+            filter: blur(2px);
+            animation: white-float 12s ease-in-out infinite alternate;
+        }
+        
+        body.white-theme .white-shape1 {
+            width: 220px;
+            height: 220px;
+            left: 8vw;
+            top: 18vh;
+            background: #fcb69f;
+            animation-delay: 0s;
+        }
+        
+        body.white-theme .white-shape2 {
+            width: 160px;
+            height: 160px;
+            right: 10vw;
+            top: 60vh;
+            background: #a1c4fd;
+            animation-delay: 2s;
+        }
+        
+        body.white-theme .white-shape3 {
+            width: 120px;
+            height: 120px;
+            left: 60vw;
+            top: 10vh;
+            background: #fffde4;
+            animation-delay: 4s;
+        }
+        
+        body.white-theme .white-shape4 {
+            width: 180px;
+            height: 180px;
+            right: 20vw;
+            top: 25vh;
+            background: #e0f7fa;
+            animation-delay: 6s;
+        }
+        
+        @keyframes white-float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-30px) scale(1.08);
+            }
+        }
+        
+        body.white-theme .navbar,
+        body.white-theme .footer {
+            background: rgba(255, 255, 255, 0.95) !important;
+            color: #222831 !important;
+            border-bottom: 1px solid #eee !important;
+        }
+        
+        body.white-theme .logo {
+            background: none !important;
+            -webkit-text-fill-color: #222831 !important;
+            color: #222831 !important;
+            filter: none !important;
+        }
+        
+        body.white-theme .nav-links a {
+            color: #222831 !important;
+            background: none !important;
+            box-shadow: none !important;
+        }
+        
+        body.white-theme .nav-links a:hover {
+            background: #f5f5f5 !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme .nav-links a::after {
+            background: linear-gradient(45deg, #222, #feca57) !important;
+        }
+        
+        body.white-theme .section {
+            background: none !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme .section h2,
+        body.white-theme .section h2::after {
+            background: none !important;
+            -webkit-text-fill-color: #222831 !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme .skill-card,
+        body.white-theme .project-card {
+            background: #f8f8f8 !important;
+            color: #222831 !important;
+            border: 1px solid #eee !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        body.white-theme .skill-card h3,
+        body.white-theme .project-content h3 {
+            background: none !important;
+            -webkit-text-fill-color: #222831 !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme .project-image {
+            background: #eaeaea !important;
+            color: #222831 !important;
+            animation: none !important;
+        }
+        
+        body.white-theme .project-image::before {
+            background: none !important;
+        }
+        
+        body.white-theme .cta-button,
+        body.white-theme .view-resume-btn {
+            background: linear-gradient(45deg, #fff, #feca57) !important;
+            color: #222831 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        body.white-theme .cta-button:hover,
+        body.white-theme .view-resume-btn:hover {
+            background: #feca57 !important;
+            color: #222831 !important;
+        }
+        
+        body.white-theme .form-group input,
+        body.white-theme .form-group textarea {
+            background: #fff !important;
+            color: #222831 !important;
+            border: 2px solid #eee !important;
+        }
+        
+        body.white-theme .form-group input:focus,
+        body.white-theme .form-group textarea:focus {
+            border-color: #feca57 !important;
+            box-shadow: 0 0 10px #feca57;
+        }
+        
+        body.white-theme .footer {
+            background: #f8f8f8 !important;
+            color: #222831 !important;
+            border-top: 1px solid #eee !important;
+        }
+        
+        body.white-theme a {
+            color: #222831 !important;
+        }
+        
+        body.white-theme #unique-bg,
+        body.white-theme #starfield-canvas,
+        body.white-theme .aurora,
+        body.white-theme #particle-canvas,
+        body.white-theme .floating-shapes,
+        body.white-theme .magic-orb {
+            display: none !important;
         }
     </style>
     /* ...existing code... */
 </head>
 
 <body>
+    <div class="white-shapes" style="display:none;">
+        <div class="white-shape white-shape1"></div>
+        <div class="white-shape white-shape2"></div>
+        <div class="white-shape white-shape3"></div>
+        <div class="white-shape white-shape4"></div>
+    </div>
     <div id="unique-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;overflow:hidden;pointer-events:none;">
         <svg width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="none" style="position:absolute;top:0;left:0;width:100vw;height:100vh;">
             <defs>
@@ -630,6 +910,7 @@
             <a href="#contact">Contact</a>
             <a href="https://github.com/sanjaysahoo21/Oryx" target="_blank" rel="noopener" style="font-weight:bold;">GitHub</a>
         </div>
+        <button id="theme-toggle" aria-label="Toggle theme" style="margin-left:20px;padding:8px 18px;border-radius:20px;border:none;background:linear-gradient(45deg,#fff,#feca57);color:#222;font-weight:bold;cursor:pointer;transition:.3s;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:1100;">🌙 Light Mode</button>
     </nav>
 
     <section class="hero">
@@ -639,7 +920,7 @@
             <div class="shape"></div>
             <div class="magic-orb"></div>
         </div>
-        <div class="hero-content">
+        <div class="hero-content scroll-animate">
             <h1>Yaswanth Amjuri</h1>
             <p>Creative Developer & Digital Artist</p>
             <button class="cta-button" onclick="scrollToSection('projects')">View My Work</button>
@@ -647,40 +928,41 @@
     </section>
 
     <section id="about" class="section">
-        <h2>About Me</h2>
-        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        <h2 class="scroll-animate">About Me</h2>
+        <p class="scroll-animate" style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
             I'm a passionate creative developer who loves bringing ideas to life through code and design. With a background in both technical development and visual arts, I create digital experiences that are both functional and beautiful. I believe in the power
             of technology to tell stories and connect people.
         </p>
-        <div style="text-align:center; margin-top:30px;">
-            <a href="resume.html" class="cta-button view-resume-btn">View Resume</a>
+        <div class="scroll-animate" style="text-align:center; margin-top:30px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+            <a href="AmjuriYaswanthResume.pdf" class="cta-button view-resume-btn" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#4ecdc4,#ff6b6b);color:#fff;">View Resume (PDF)</a>
+            <a href="download.html" class="cta-button view-resume-btn" style="background:linear-gradient(45deg,#feca57,#4ecdc4);color:#232526;">⬇️ Download Resume</a>
         </div>
     </section>
 
     <section id="skills" class="section">
-        <h2>Skills & Expertise</h2>
+        <h2 class="scroll-animate">Skills & Expertise</h2>
         <div class="skills-grid">
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>HTML</h3>
                 <p>Semantic markup, accessibility, SEO best practices, responsive layouts</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>CSS</h3>
                 <p>Flexbox, Grid, animations, preprocessors, modern design systems</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>JAVASCRIPT</h3>
                 <p>ES6+, DOM manipulation, event handling, AJAX, interactive UI</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>JAVA</h3>
                 <p>OOP, data structures, backend development, Android basics</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>SQL</h3>
                 <p>Database design, queries, joins, normalization, data analysis</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card scroll-animate">
                 <h3>BOOTSTRAP</h3>
                 <p>Responsive layouts, utility classes, components, rapid prototyping</p>
             </div>
@@ -688,16 +970,17 @@
     </section>
 
     <section id="projects" class="section">
-        <h2>Featured Project</h2>
-        <div class="projects-grid" style="justify-content:center;grid-template-columns:1fr;">
-            <div class="project-card" style="max-width:500px;margin:0 auto;">
-                <div class="project-image">🦄</div>
+        <h2 class="scroll-animate" style="font-size:3.2rem;letter-spacing:2px;background:linear-gradient(90deg,#43e97b,#feca57,#ff6b6b,#4ecdc4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 24px rgba(76,205,196,0.12);animation:slideUp 1.2s cubic-bezier(.77,0,.18,1) forwards;">My Creative Projects</h2>
+        <div class="projects-grid" style="justify-content:center;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;">
+            <div class="project-card scroll-animate" style="max-width:480px;margin:0 auto;box-shadow:0 8px 32px rgba(67,233,123,0.08),0 1.5px 8px rgba(76,205,196,0.08);">
+                <div class="project-image" style="font-size:4rem;">🦄</div>
                 <div class="project-content">
-                    <h3>Oryx (Open Source Project)</h3>
-                    <p>Oryx is a collaborative open-source project hosted on GitHub. It features contributions from multiple developers and aims to provide innovative solutions and learning resources. Explore the code, issues, and updates on the repository.</p>
-                    <a href="https://github.com/sanjaysahoo21/Oryx" target="_blank" rel="noopener" style="color:#43e97b;font-weight:bold;text-decoration:underline;">View on GitHub</a>
-                    <br>
-                    <a href="https://sanjaysahoo21.github.io/Oryx/index.html" target="_blank" rel="noopener" style="color:#feca57;font-weight:bold;text-decoration:underline;margin-top:10px;display:inline-block;">Live Project</a>
+                    <h3 style="font-size:1.5rem;background:linear-gradient(90deg,#43e97b,#feca57,#ff6b6b,#4ecdc4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Oryx (Open Source Project)</h3>
+                    <p style="font-size:1.1rem;line-height:1.7;color:#fff;">Oryx is a collaborative open-source project hosted on GitHub. It features contributions from multiple developers and aims to provide innovative solutions and learning resources. Explore the code, issues, and updates on the repository.</p>
+                    <div style="margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;">
+                        <a href="https://github.com/sanjaysahoo21/Oryx" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#43e97b,#38f9d7);color:#232526;font-weight:bold;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(67,233,123,0.12);transition:.2s;">View on GitHub</a>
+                        <a href="https://sanjaysahoo21.github.io/Oryx/index.html" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#feca57,#ff6b6b);color:#232526;font-weight:bold;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(254,202,87,0.12);transition:.2s;">Live Project</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -705,7 +988,7 @@
 
     <section id="contact" class="section">
         <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;flex-wrap:wrap;">
-            <div class="contact-form" style="flex:1;min-width:280px;">
+            <div class="contact-form scroll-animate" style="flex:1;min-width:280px;">
                 <h2>Let's Create Something Amazing</h2>
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
@@ -731,7 +1014,7 @@
             <a href="https://www.linkedin.com/in/yaswanth-amjuri-847261282/" target="_blank" rel="noopener" style="margin:0 15px;color:#fff;font-size:1.5rem;text-decoration:none;">
                 <span style="vertical-align:middle;">💼</span> LinkedIn
             </a>
-            <a href="https://twitter.com/sanjaysahoo21" target="_blank" rel="noopener" style="margin:0 15px;color:#fff;font-size:1.5rem;text-decoration:none;">
+            <a href="https://twitter.com/" target="_blank" rel="noopener" style="margin:0 15px;color:#fff;font-size:1.5rem;text-decoration:none;">
                 <span style="vertical-align:middle;">🐦</span> Twitter
             </a>
             <a href="https://leetcode.com/u/vSkUubAQD1/" target="_blank" rel="noopener" style="margin:0 15px;color:#fff;font-size:1.5rem;text-decoration:none;">
@@ -739,11 +1022,68 @@
 </a>
 
         </div>
-        <p>&copy; 2024 Alex Chen. Crafted with passion and creativity.</p>
+        <p>&copy; 2025 Yaswanth Amjuri. Crafted with passion and creativity.</p>
     </footer>
 
 
     <script>
+        // Theme toggle logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(white) {
+            if (white) {
+                body.classList.add('white-theme');
+                themeToggle.textContent = '🌑 Dark Mode';
+                updateWhiteShapes();
+            } else {
+                body.classList.remove('white-theme');
+                themeToggle.textContent = '🌙 Light Mode';
+                updateWhiteShapes();
+            }
+        }
+        // Persist theme
+        if (localStorage.getItem('theme') === 'white') setTheme(true);
+
+        function updateWhiteShapes() {
+            var ws = document.querySelector('.white-shapes');
+            if (!ws) return;
+            if (document.body.classList.contains('white-theme')) {
+                ws.style.display = 'block';
+            } else {
+                ws.style.display = 'none';
+            }
+        }
+        updateWhiteShapes();
+        themeToggle.addEventListener('click', () => {
+            const isWhite = !body.classList.contains('white-theme');
+            setTheme(isWhite);
+            localStorage.setItem('theme', isWhite ? 'white' : 'color');
+        });
+
+        // === Scroll-triggered animation logic ===
+        function animateOnScroll() {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        // Run after DOM loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', animateOnScroll);
+        } else {
+            animateOnScroll();
+        }
+
         // Unique Starfield
         (() => {
             const c = document.getElementById('starfield-canvas');
