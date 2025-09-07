@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tags {
+    width: auto;
+    height: auto;
+    border: none;
+    font-size: 32px;
+}
+
+.tags input {
+    color: rgb(38, 255, 0);
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.tags input:hover {
+    background-color: rgb(192, 191, 195);
+}
+
+.Btn {
+    cursor: pointer;
+    font-size: 20px;
+}
