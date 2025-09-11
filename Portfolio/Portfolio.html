@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         *,
         *::before,
@@ -131,6 +132,47 @@
                 transform: rotate(240deg) scale(0.9);
             }
         }
+        /* Unique background for both themes */
+        
+        #unique-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            /* Dark theme: deep blue-violet gradient with a soft overlay */
+            background: linear-gradient(120deg, #232526 0%, #232b3a 60%, #3a2b5a 100%);
+        }
+        
+        body.white-theme #unique-bg {
+            /* Light theme: soft pastel gradient with a subtle radial highlight */
+            background: radial-gradient(ellipse at 60% 20%, #fffde4 0%, #fceabb 60%, #e0f7fa 100%);
+        }
+        /* Optional: subtle animated overlay for extra uniqueness */
+        
+        #unique-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.18;
+            background: repeating-linear-gradient(135deg, rgba(254, 202, 87, 0.08) 0 2px, transparent 2px 40px);
+            animation: bgStripes 12s linear infinite;
+        }
+        
+        @keyframes bgStripes {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 80px 80px;
+            }
+        }
         
         .navbar {
             position: fixed;
@@ -170,6 +212,7 @@
         .nav-links {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
         
         .nav-links a {
@@ -231,7 +274,6 @@
             animation: slideUp 1s ease forwards 0.7s;
         }
         
-        .cta-button,
         .cta-button,
         .view-resume-btn {
             padding: 15px 30px;
@@ -377,6 +419,15 @@
                 transform: rotate(0deg);
             }
             to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spinRing {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
                 transform: rotate(360deg);
             }
         }
@@ -575,9 +626,7 @@
         
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-            color: #f9a826 !important;
-            color: #f9a826 !important;
+            color: #f9a826;
         }
         
         .footer {
@@ -586,6 +635,140 @@
             background: rgba(0, 0, 0, 0.3);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+        /* Carousel styles */
+        
+        .carousel-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .carousel-item {
+            width: 90%;
+            max-width: 1000px;
+            height: 80%;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-item-active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .carousel-nav {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            position: absolute;
+            bottom: 30px;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+        
+        .carousel-button {
+            width: 16px;
+            height: 16px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-button-active {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow-buttons {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 20;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .arrowbutton {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            pointer-events: auto;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background 0.2s;
+        }
+        
+        .arrowbutton:hover {
+            background-color: #222;
+        }
+        
+        .certificate-container {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .certificate-heading {
+            font-size: 2rem;
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        /* Animations */
         
         @keyframes slideUp {
             from {
@@ -619,245 +802,113 @@
                 background-position: 0% 50%;
             }
         }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 10px 8px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-            .section {
-                padding: 30px 6px;
-            }
-            .section h2 {
-                font-size: 1.2rem;
-            }
-            .magic-orb {
-                width: 48px;
-                height: 48px;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px !important;
-            }
-            .project-card {
-                max-width: 98vw !important;
-                margin: 0 auto !important;
-                padding: 0 2vw !important;
-            }
-            .project-image {
-                height: 120px !important;
-                font-size: 2.2rem !important;
-            }
-            .project-content h3 {
-                font-size: 1rem !important;
-            }
-            .project-content p {
-                font-size: 0.9rem !important;
-            }
-            .cta-button,
-            .view-resume-btn {
-                font-size: 0.9rem !important;
-                padding: 10px 12px !important;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px !important;
-            }
-            .skill-card {
-                padding: 16px !important;
-            }
-            .contact-form {
-                max-width: 98vw !important;
-                padding: 0 2vw !important;
-            }
-        }
+        /* Theme styles */
         
         body.white-theme {
-            background: linear-gradient(135deg, #f8fafc 0%, #fceabb 100%) !important;
-            color: #222831 !important;
-        }
-        
-        body.white-theme::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, #ffe6fa 0%, transparent 60%), radial-gradient(circle at 80% 70%, #e0f7fa 0%, transparent 60%), radial-gradient(circle at 60% 10%, #fffde4 0%, transparent 70%), radial-gradient(circle at 90% 20%, #ffe9c6 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0.7;
-        }
-        
-        body.white-theme .white-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        body.white-theme .white-shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.18;
-            filter: blur(2px);
-            animation: white-float 12s ease-in-out infinite alternate;
-        }
-        
-        body.white-theme .white-shape1 {
-            width: 220px;
-            height: 220px;
-            left: 8vw;
-            top: 18vh;
-            background: #fcb69f;
-            animation-delay: 0s;
-        }
-        
-        body.white-theme .white-shape2 {
-            width: 160px;
-            height: 160px;
-            right: 10vw;
-            top: 60vh;
-            background: #a1c4fd;
-            animation-delay: 2s;
-        }
-        
-        body.white-theme .white-shape3 {
-            width: 120px;
-            height: 120px;
-            left: 60vw;
-            top: 10vh;
-            background: #fffde4;
-            animation-delay: 4s;
-        }
-        
-        body.white-theme .white-shape4 {
-            width: 180px;
-            height: 180px;
-            right: 20vw;
-            top: 25vh;
-            background: #e0f7fa;
-            animation-delay: 6s;
-        }
-        
-        @keyframes white-float {
-            0% {
-                transform: translateY(0) scale(1);
-            }
-            100% {
-                transform: translateY(-30px) scale(1.08);
-            }
+            background: linear-gradient(135deg, #f8fafc 0%, #fceabb 100%);
+            color: #222831;
         }
         
         body.white-theme .navbar,
         body.white-theme .footer {
-            background: rgba(255, 255, 255, 0.95) !important;
-            color: #222831 !important;
-            border-bottom: 1px solid #eee !important;
+            background: rgba(255, 255, 255, 0.95);
+            color: #222831;
+            border-bottom: 1px solid #eee;
         }
         
         body.white-theme .logo {
-            background: none !important;
-            -webkit-text-fill-color: #222831 !important;
-            color: #222831 !important;
-            filter: none !important;
+            background: none;
+            -webkit-text-fill-color: #222831;
+            color: #222831;
+            filter: none;
         }
         
         body.white-theme .nav-links a {
-            color: #222831 !important;
-            background: none !important;
-            box-shadow: none !important;
+            color: #222831;
+            background: none;
+            box-shadow: none;
         }
         
         body.white-theme .nav-links a:hover {
-            background: #f5f5f5 !important;
-            color: #222831 !important;
+            background: #f5f5f5;
+            color: #222831;
         }
         
         body.white-theme .nav-links a::after {
-            background: linear-gradient(45deg, #222, #feca57) !important;
+            background: linear-gradient(45deg, #222, #feca57);
         }
         
         body.white-theme .section {
-            background: none !important;
-            color: #222831 !important;
+            background: none;
+            color: #222831;
         }
         
         body.white-theme .section h2,
         body.white-theme .section h2::after {
-            background: none !important;
-            -webkit-text-fill-color: #222831 !important;
-            color: #222831 !important;
+            background: none;
+            -webkit-text-fill-color: #222831;
+            color: #222831;
         }
         
         body.white-theme .skill-card,
         body.white-theme .project-card {
-            background: #f8f8f8 !important;
-            color: #222831 !important;
-            border: 1px solid #eee !important;
+            background: #f8f8f8;
+            color: #222831;
+            border: 1px solid #eee;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         }
         
         body.white-theme .skill-card h3,
         body.white-theme .project-content h3 {
-            background: none !important;
-            -webkit-text-fill-color: #222831 !important;
-            color: #222831 !important;
+            background: none;
+            -webkit-text-fill-color: #222831;
+            color: #222831;
         }
         
         body.white-theme .project-image {
-            background: #eaeaea !important;
-            color: #222831 !important;
-            animation: none !important;
+            background: #eaeaea;
+            color: #222831;
+            animation: none;
         }
         
         body.white-theme .project-image::before {
-            background: none !important;
+            background: none;
         }
         
         body.white-theme .cta-button,
         body.white-theme .view-resume-btn {
-            background: linear-gradient(45deg, #fff, #feca57) !important;
-            color: #222831 !important;
+            background: linear-gradient(45deg, #fff, #feca57);
+            color: #222831;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         
         body.white-theme .cta-button:hover,
         body.white-theme .view-resume-btn:hover {
-            background: #feca57 !important;
-            color: #222831 !important;
+            background: #feca57;
+            color: #222831;
         }
         
         body.white-theme .form-group input,
         body.white-theme .form-group textarea {
-            background: #fff !important;
-            color: #222831 !important;
-            border: 2px solid #eee !important;
+            background: #fff;
+            color: #222831;
+            border: 2px solid #eee;
         }
         
         body.white-theme .form-group input:focus,
         body.white-theme .form-group textarea:focus {
-            border-color: #feca57 !important;
+            border-color: #feca57;
             box-shadow: 0 0 10px #feca57;
         }
         
         body.white-theme .footer {
-            background: #f8f8f8 !important;
-            color: #222831 !important;
-            border-top: 1px solid #eee !important;
+            background: #f8f8f8;
+            color: #222831;
+            border-top: 1px solid #eee;
         }
         
         body.white-theme a {
-            color: #222831 !important;
+            color: #222831;
         }
         
         body.white-theme #unique-bg,
@@ -866,40 +917,130 @@
         body.white-theme #particle-canvas,
         body.white-theme .floating-shapes,
         body.white-theme .magic-orb {
-            display: none !important;
+            display: none;
+        }
+        /* FIX: Changed selector from non-existent ID '#certificates-carousel' to the correct class '.carousel-section' */
+        
+        body.white-theme .carousel-section {
+            background: #fff;
+        }
+        
+        body.white-theme .certificate-heading {
+            color: #222;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        /* Mobile responsiveness */
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links {
+                gap: 15px;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 50px 20px;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+            .magic-orb {
+                width: 80px;
+                height: 80px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .project-card {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .project-image {
+                height: 150px;
+                font-size: 2rem;
+            }
+            .project-content h3 {
+                font-size: 1.1rem;
+            }
+            .project-content p {
+                font-size: 0.9rem;
+            }
+            .cta-button,
+            .view-resume-btn {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .skill-card {
+                padding: 20px;
+            }
+            .contact-form {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+            .certificate-heading {
+                font-size: 1.5rem;
+                padding: 8px 16px;
+            }
+            .carousel-button {
+                width: 12px;
+                height: 12px;
+            }
+            .arrowbutton {
+                width: 44px;
+                height: 44px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .certificate-heading {
+                font-size: 1.1rem;
+                padding: 6px 10px;
+                top: 15px;
+            }
+            .carousel-button {
+                width: 10px;
+                height: 10px;
+            }
+            .arrowbutton {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+            .carousel-item {
+                height: 70%;
+            }
         }
     </style>
-    /* ...existing code... */
 </head>
 
 <body>
-    <div class="white-shapes" style="display:none;">
-        <div class="white-shape white-shape1"></div>
-        <div class="white-shape white-shape2"></div>
-        <div class="white-shape white-shape3"></div>
-        <div class="white-shape white-shape4"></div>
-    </div>
-    <div id="unique-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;overflow:hidden;pointer-events:none;">
-        <svg width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="none" style="position:absolute;top:0;left:0;width:100vw;height:100vh;">
-            <defs>
-                <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#fbc2eb"/>
-                    <stop offset="50%" stop-color="#a1c4fd"/>
-                    <stop offset="100%" stop-color="#ff9a9e"/>
-                </linearGradient>
-            </defs>
-            <path id="wavePath" d="M0,800 Q960,1000 1920,800 L1920,1080 L0,1080 Z" fill="url(#waveGradient)" opacity="0.7">
-                <animate attributeName="d" dur="8s" repeatCount="indefinite"
-                    values="M0,800 Q960,1000 1920,800 L1920,1080 L0,1080 Z;
-                            M0,820 Q960,950 1920,820 L1920,1080 L0,1080 Z;
-                            M0,800 Q960,1000 1920,800 L1920,1080 L0,1080 Z"/>
-            </path>
-        </svg>
-    </div>
-    <!-- Subtle Starfield -->
-    <canvas id="starfield-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-3;pointer-events:none;"></canvas>
-    <div class="aurora"></div>
+    <div id="unique-bg"></div>
+
+    <canvas id="starfield-canvas"></canvas>
     <canvas id="particle-canvas"></canvas>
+    <div class="aurora"></div>
 
     <nav class="navbar">
         <div class="logo">Portfolio</div>
@@ -908,7 +1049,7 @@
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-            <a href="https://github.com/sanjaysahoo21/Oryx" target="_blank" rel="noopener" style="font-weight:bold;">GitHub</a>
+            <a href="https://github.com/Yash913212" target="_blank" rel="noopener" style="font-weight:bold;">GitHub</a>
         </div>
         <button id="theme-toggle" aria-label="Toggle theme" style="margin-left:20px;padding:8px 18px;border-radius:20px;border:none;background:linear-gradient(45deg,#fff,#feca57);color:#222;font-weight:bold;cursor:pointer;transition:.3s;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:1100;">🌙 Light Mode</button>
     </nav>
@@ -918,8 +1059,8 @@
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
-            <div class="magic-orb"></div>
         </div>
+        <div class="magic-orb"></div>
         <div class="hero-content scroll-animate">
             <h1>Yaswanth Amjuri</h1>
             <p>Creative Developer & Digital Artist</p>
@@ -929,13 +1070,62 @@
 
     <section id="about" class="section">
         <h2 class="scroll-animate">About Me</h2>
-        <p class="scroll-animate" style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-            I'm a passionate creative developer who loves bringing ideas to life through code and design. With a background in both technical development and visual arts, I create digital experiences that are both functional and beautiful. I believe in the power
-            of technology to tell stories and connect people.
-        </p>
-        <div class="scroll-animate" style="text-align:center; margin-top:30px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
-            <a href="AmjuriYaswanthResume.pdf" class="cta-button view-resume-btn" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#4ecdc4,#ff6b6b);color:#fff;">View Resume (PDF)</a>
-            <a href="download.html" class="cta-button view-resume-btn" style="background:linear-gradient(45deg,#feca57,#4ecdc4);color:#232526;">⬇️ Download Resume</a>
+        <div class="scroll-animate" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; margin-top: 40px;">
+            <div style="
+                background: linear-gradient(135deg, #43e97b 0%, #feca57 100%);
+                padding: 10px;
+                border-radius: 50%;
+                box-shadow: 0 8px 32px rgba(67,233,123,0.18), 0 1.5px 8px rgba(76,205,196,0.13);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 260px;
+                height: 260px;
+                position: relative;
+                ">
+                <div style="
+                    background: rgba(255,255,255,0.13);
+                    border-radius: 50%;
+                    padding: 10px;
+                    width: 240px;
+                    height: 240px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 4px 24px rgba(76,205,196,0.10);
+                    ">
+                    <img src="./Assets/23P31A05D6.jpg" alt="Yaswanth Amjuri" style="
+                        width: 210px;
+                        height: 210px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        box-shadow: 0 2px 16px rgba(76,205,196,0.18);
+                        border: 4px solid #fff;
+                        background: #fff;
+                    ">
+                </div>
+                <div style="
+                    position: absolute;
+                    top: -8px; left: -8px; right: -8px; bottom: -8px;
+                    border-radius: 50%;
+                    border: 4px dashed #fffde4;
+                    pointer-events: none;
+                    opacity: 0.35;
+                    z-index: 0;
+                    animation: spinRing 12s linear infinite;
+                "></div>
+            </div>
+
+            <div style="min-width:260px;max-width:500px;">
+                <p style="text-align: left; font-size: 1.2rem; margin-bottom: 28px;">
+                    I'm a passionate creative developer who loves bringing ideas to life through code and design. With a background in both technical development and visual arts, I create digital experiences that are both functional and beautiful. I believe in the power
+                    of technology to tell stories and connect people.
+                </p>
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <a href="./Assets/AmjuriYaswanthResume.pdf" class="cta-button view-resume-btn" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#4ecdc4,#ff6b6b);color:#fff;">View Resume (PDF)</a>
+                    <a href="./Assets/AmjuriYaswanthResume.pdf" download="Amjuri-Yaswanth-Resume.pdf" class="cta-button view-resume-btn" style="background:linear-gradient(45deg,#feca57,#4ecdc4);color:#232526;">⬇️ Download Resume</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -978,9 +1168,83 @@
                     <h3 style="font-size:1.5rem;background:linear-gradient(90deg,#43e97b,#feca57,#ff6b6b,#4ecdc4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Oryx (Open Source Project)</h3>
                     <p style="font-size:1.1rem;line-height:1.7;color:#fff;">Oryx is a collaborative open-source project hosted on GitHub. It features contributions from multiple developers and aims to provide innovative solutions and learning resources. Explore the code, issues, and updates on the repository.</p>
                     <div style="margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;">
-                        <a href="https://github.com/sanjaysahoo21/Oryx" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#43e97b,#38f9d7);color:#232526;font-weight:bold;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(67,233,123,0.12);transition:.2s;">View on GitHub</a>
-                        <a href="https://sanjaysahoo21.github.io/Oryx/index.html" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#feca57,#ff6b6b);color:#232526;font-weight:bold;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(254,202,87,0.12);transition:.2s;">Live Project</a>
+                        <a href="https://github.com/Yash913212" target="_blank" rel="noopener" style="background:linear-gradient(45deg,#feca57,#ff6b6b);color:#232526;font-weight:bold;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(254,202,87,0.12);transition:.2s;">Live Project</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel-section">
+        <div class="carousel">
+            <div class="certificate-heading">My Certificates</div>
+
+            <div class="carousel-item carousel-item-active">
+                <div class="certificate-container">
+                    <img src="./Assets/23P31A05D6_page-0001.jpg" alt="Certificate 1" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/Oracle Cloud Certificate_page-0001.jpg" alt="Certificate 2" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/Html (2)_page-0001.jpg" alt="Certificate 3" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/css_page-0001.jpg" alt="Certificate 4" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/JavaScript_Essentials_1_certificate_23p31a05d6-acet-ac-in_e7a38980-1a13-4d26-88f7-cf2e5a6db90d_page-0001.jpg" alt="Certificate 5" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/JavaScript_Essentials_2_certificate_23p31a05d6-acet-ac-in_ed85c83a-3a17-4886-9282-48d87869aeb7_page-0001.jpg" alt="Certificate 6" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/Simplelearn frontend.png" alt="Certificate 7" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/TCS Ion Certificate_page-0001.jpg" alt="Certificate 8" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/Hp Certificate_page-0001.jpg" alt="Certificate 9" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/hp certificate 2_page-0001.jpg" alt="Certificate 10" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-arrow-buttons">
+                <div class="carousel-prevbutton arrowbutton" tabindex="0" aria-label="Previous certificate">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="carousel-nextbutton arrowbutton" tabindex="0" aria-label="Next certificate">
+                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
         </div>
@@ -992,13 +1256,13 @@
                 <h2>Let's Create Something Amazing</h2>
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" placeholder="Your Name" aria-label="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" placeholder="Your Email" aria-label="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                        <textarea rows="5" placeholder="Tell me about your project..." aria-label="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
                 </form>
@@ -1018,50 +1282,124 @@
                 <span style="vertical-align:middle;">🐦</span> Twitter
             </a>
             <a href="https://leetcode.com/u/vSkUubAQD1/" target="_blank" rel="noopener" style="margin:0 15px;color:#fff;font-size:1.5rem;text-decoration:none;">
-  🧩 LeetCode
-</a>
-
+                <span style="vertical-align:middle;">🧩</span> LeetCode
+            </a>
         </div>
         <p>&copy; 2025 Yaswanth Amjuri. Crafted with passion and creativity.</p>
     </footer>
 
-
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Carousel functionality
+            const carousel = document.querySelector(".carousel");
+            if (carousel) {
+                const items = carousel.querySelectorAll(".carousel-item");
+                const nav = document.createElement("div");
+                nav.className = "carousel-nav";
+                items.forEach((_, i) => {
+                    const btn = document.createElement("div");
+                    btn.className = "carousel-button";
+                    btn.setAttribute("role", "button");
+                    if (i === 0) btn.classList.add("carousel-button-active");
+                    nav.appendChild(btn);
+                });
+                carousel.appendChild(nav);
+
+                const buttons = nav.querySelectorAll(".carousel-button");
+                let currentIndex = 0;
+
+                function slideIndex(index) {
+                    if (index < 0 || index >= items.length) return;
+                    items.forEach(item => item.classList.remove("carousel-item-active"));
+                    buttons.forEach(btn => btn.classList.remove("carousel-button-active"));
+                    items[index].classList.add("carousel-item-active");
+                    buttons[index].classList.add("carousel-button-active");
+                    currentIndex = index;
+                }
+
+                buttons.forEach((button, i) => {
+                    button.addEventListener("click", () => slideIndex(i));
+                });
+
+                const prevButton = carousel.querySelector(".carousel-prevbutton");
+                const nextButton = carousel.querySelector(".carousel-nextbutton");
+
+                prevButton.addEventListener("click", () => {
+                    let newIndex = currentIndex - 1;
+                    if (newIndex < 0) newIndex = items.length - 1;
+                    slideIndex(newIndex);
+                });
+
+                nextButton.addEventListener("click", () => {
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= items.length) newIndex = 0;
+                    slideIndex(newIndex);
+                });
+
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "ArrowLeft") prevButton.click();
+                    if (e.key === "ArrowRight") nextButton.click();
+                });
+
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                carousel.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, {
+                    passive: true
+                });
+
+                carousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const swipeThreshold = 50;
+                    if (touchEndX < touchStartX - swipeThreshold) nextButton.click();
+                    if (touchEndX > touchStartX + swipeThreshold) prevButton.click();
+                });
+
+                let carouselInterval = setInterval(() => nextButton.click(), 5000);
+
+                carousel.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+                carousel.addEventListener('mouseleave', () => {
+                    clearInterval(carouselInterval);
+                    carouselInterval = setInterval(() => nextButton.click(), 5000);
+                });
+
+                slideIndex(currentIndex);
+            }
+        });
+
         // Theme toggle logic
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        function setTheme(white) {
-            if (white) {
+        function setTheme(isWhite) {
+            if (isWhite) {
                 body.classList.add('white-theme');
                 themeToggle.textContent = '🌑 Dark Mode';
-                updateWhiteShapes();
+                localStorage.setItem('theme', 'white');
             } else {
                 body.classList.remove('white-theme');
                 themeToggle.textContent = '🌙 Light Mode';
-                updateWhiteShapes();
+                localStorage.setItem('theme', 'dark');
             }
         }
-        // Persist theme
-        if (localStorage.getItem('theme') === 'white') setTheme(true);
 
-        function updateWhiteShapes() {
-            var ws = document.querySelector('.white-shapes');
-            if (!ws) return;
-            if (document.body.classList.contains('white-theme')) {
-                ws.style.display = 'block';
-            } else {
-                ws.style.display = 'none';
-            }
+        // Persist theme on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'white') {
+            setTheme(true);
+        } else {
+            setTheme(false); // Default to dark theme
         }
-        updateWhiteShapes();
+
         themeToggle.addEventListener('click', () => {
-            const isWhite = !body.classList.contains('white-theme');
-            setTheme(isWhite);
-            localStorage.setItem('theme', isWhite ? 'white' : 'color');
+            const isWhite = body.classList.contains('white-theme');
+            setTheme(!isWhite);
         });
 
-        // === Scroll-triggered animation logic ===
+
+        // Scroll-triggered animation logic
         function animateOnScroll() {
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
@@ -1077,155 +1415,172 @@
                 observer.observe(el);
             });
         }
-        // Run after DOM loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', animateOnScroll);
-        } else {
-            animateOnScroll();
-        }
+        animateOnScroll();
 
-        // Unique Starfield
+
+        // Starfield animation
         (() => {
-            const c = document.getElementById('starfield-canvas');
-            if (!c) return;
-            const x = c.getContext('2d');
-            let s = [];
+            const canvas = document.getElementById('starfield-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let stars = [];
 
-            function r() {
-                c.width = window.innerWidth;
-                c.height = window.innerHeight;
-                s = Array.from({
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                stars = Array.from({
                     length: 80
                 }, () => ({
-                    x: Math.random() * c.width,
-                    y: Math.random() * c.height,
-                    r: Math.random() * 1.2 + .2,
-                    o: Math.random() * .7 + .2,
-                    t: Math.random() * 6.28,
-                    col: `hsl(${Math.random()*360},100%,85%)`
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.2 + 0.2,
+                    opacity: Math.random() * 0.7 + 0.2,
+                    theta: Math.random() * Math.PI * 2,
+                    color: `hsl(${Math.random() * 360}, 100%, 85%)`
                 }));
             }
 
-            function a() {
-                x.clearRect(0, 0, c.width, c.height);
-                s.forEach(e => {
-                    x.save();
-                    x.globalAlpha = e.o + .2 * Math.sin(Date.now() / 700 + e.t);
-                    x.beginPath();
-                    x.arc(e.x, e.y, e.r, 0, 6.28);
-                    x.fillStyle = e.col;
-                    x.shadowBlur = 10;
-                    x.shadowColor = e.col;
-                    x.fill();
-                    x.restore();
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    ctx.save();
+                    ctx.globalAlpha = star.opacity + 0.2 * Math.sin(Date.now() / 700 + star.theta);
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = star.color;
+                    ctx.fill();
+                    ctx.restore();
                 });
-                requestAnimationFrame(a);
+                requestAnimationFrame(animate);
             }
-            window.addEventListener('resize', r);
-            r();
-            a();
+            window.addEventListener('resize', resize);
+            resize();
+            animate();
         })();
-        // Unique Particles
-        (() => {
-            const c = document.getElementById('particle-canvas');
-            if (!c) return;
-            const x = c.getContext('2d');
-            let p = [];
 
-            function r() {
-                c.width = window.innerWidth;
-                c.height = window.innerHeight;
+        // Particle animation
+        (() => {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
 
-            function i() {
-                p = Array.from({
+            function init() {
+                particles = Array.from({
                     length: 30
                 }, () => ({
-                    x: Math.random() * c.width,
-                    y: Math.random() * c.height,
-                    vx: (Math.random() - .5) * .7,
-                    vy: (Math.random() - .5) * .7,
-                    s: Math.random() * 4 + 1,
-                    col: `hsl(${Math.random()*360},80%,60%)`
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7,
+                    size: Math.random() * 4 + 1,
+                    color: `hsl(${Math.random() * 360}, 80%, 60%)`
                 }));
             }
 
-            function a() {
-                x.clearRect(0, 0, c.width, c.height);
-                p.forEach((e, j) => {
-                    e.x += e.vx;
-                    e.y += e.vy;
-                    if (e.x < 0 || e.x > c.width) e.vx *= -1;
-                    if (e.y < 0 || e.y > c.height) e.vy *= -1;
-                    x.beginPath();
-                    x.arc(e.x, e.y, e.s, 0, 6.28);
-                    x.fillStyle = e.col;
-                    x.fill();
-                    for (let k = j + 1; k < p.length; k++) {
-                        let o = p[k],
-                            d = Math.hypot(e.x - o.x, e.y - o.y);
-                        if (d < 70) {
-                            x.beginPath();
-                            x.strokeStyle = `hsla(${(e.s*30)%360},100%,80%,${.2-d/300})`;
-                            x.lineWidth = .7;
-                            x.moveTo(e.x, e.y);
-                            x.lineTo(o.x, o.y);
-                            x.stroke();
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p1, i) => {
+                    p1.x += p1.vx;
+                    p1.y += p1.vy;
+                    if (p1.x < 0 || p1.x > canvas.width) p1.vx *= -1;
+                    if (p1.y < 0 || p1.y > canvas.height) p1.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p1.x, p1.y, p1.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p1.color;
+                    ctx.fill();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `hsla(${(p1.size * 30) % 360}, 100%, 80%, ${1 - dist / 100})`;
+                            ctx.lineWidth = 0.7;
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
                         }
                     }
                 });
-                requestAnimationFrame(a);
+                requestAnimationFrame(animate);
             }
             window.addEventListener('resize', () => {
-                r();
-                i();
+                resize();
+                init();
             });
-            r();
-            i();
-            a();
+            resize();
+            init();
+            animate();
         })();
+
         // Smooth scroll
         function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         }
+
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', e => {
-                if (link.getAttribute('href').startsWith('#')) {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
                     e.preventDefault();
-                    scrollToSection(link.getAttribute('href').slice(1));
+                    scrollToSection(href.slice(1));
                 }
             });
         });
-        // Form sparkle
+
+        // Form submission with sparkle effect
         function handleSubmit(e) {
             e.preventDefault();
-            const b = e.target.querySelector('button'),
-                o = b.textContent;
-            b.style.position = 'relative';
-            b.style.overflow = 'hidden';
-            b.textContent = 'Sending...';
-            b.style.background = 'linear-gradient(45deg,#43e97b,#38f9d7)';
+            const form = e.target;
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+
+            button.style.position = 'relative';
+            button.style.overflow = 'hidden';
+            button.textContent = 'Sending...';
+            button.style.background = 'linear-gradient(45deg, #43e97b, #38f9d7)';
+            button.disabled = true;
+
             if (!document.getElementById('sparkle-styles')) {
-                const s = document.createElement('style');
-                s.id = 'sparkle-styles';
-                s.textContent = '@keyframes sparkle{0%{transform:scale(0) rotate(0deg);opacity:1;}100%{transform:scale(1.5) rotate(180deg);opacity:0;}}';
-                document.head.appendChild(s);
+                const style = document.createElement('style');
+                style.id = 'sparkle-styles';
+                style.textContent = '@keyframes sparkle{0%{transform:scale(0) rotate(0deg);opacity:1;}100%{transform:scale(1.5) rotate(180deg);opacity:0;}}';
+                document.head.appendChild(style);
             }
+
             for (let i = 0; i < 6; i++) {
                 setTimeout(() => {
-                    const sp = document.createElement('div');
-                    sp.style.cssText = `position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;top:${Math.random()*100}%;left:${Math.random()*100}%;animation:sparkle .6s ease-out forwards;pointer-events:none;z-index:2;`;
-                    b.appendChild(sp);
-                    setTimeout(() => sp.remove(), 600);
+                    const sparkle = document.createElement('div');
+                    sparkle.style.cssText = `position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;top:${Math.random()*100}%;left:${Math.random()*100}%;animation:sparkle .6s ease-out forwards;pointer-events:none;z-index:2;`;
+                    button.appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 600);
                 }, i * 100);
             }
+
             setTimeout(() => {
-                b.textContent = o;
-                b.style.background = 'linear-gradient(45deg,#ff6b6b,#feca57)';
-                b.disabled = false;
-            }, 2000);
+                button.textContent = 'Message Sent!';
+                form.reset();
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(45deg,#ff6b6b,#feca57)';
+                    button.disabled = false;
+                }, 2000);
+
+            }, 1500);
         }
     </script>
 </body>

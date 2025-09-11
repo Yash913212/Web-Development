@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Certificates Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            min-width: 100vw;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+        }
+        
+        .carousel-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .carousel-item {
+            width: 90%;
+            max-width: 1000px;
+            height: 80%;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-item-active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .carousel-nav {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            position: absolute;
+            bottom: 30px;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+        
+        .carousel-button {
+            width: 16px;
+            height: 16px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-button-active {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow-buttons {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 20;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .arrowbutton {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            pointer-events: auto;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background 0.2s;
+        }
+        
+        .arrowbutton:hover {
+            background-color: #222;
+        }
+        
+        .certificate-container {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .certificate-heading {
+            font-size: 2rem;
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        @media (max-width: 900px) {
+            .certificate-heading {
+                font-size: 1.5rem;
+                padding: 8px 16px;
+            }
+            .carousel-button {
+                width: 12px;
+                height: 12px;
+            }
+            .arrowbutton {
+                width: 44px;
+                height: 44px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .certificate-heading {
+                font-size: 1.1rem;
+                padding: 6px 10px;
+                top: 15px;
+            }
+            .carousel-button {
+                width: 10px;
+                height: 10px;
+            }
+            .arrowbutton {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+            .carousel-item {
+                height: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="carousel-section">
+        <div class="carousel">
+            <div class="certificate-heading">My Certificates</div>
+
+            <!-- Replace PDF with Image -->
+            <div class="carousel-item carousel-item-active">
+                <div class="certificate-container">
+                    <img src="./Assets/23P31A05D6.pdf" alt="Certificate 1" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/certificate2.jpg" alt="Certificate 2" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/certificate3.jpg" alt="Certificate 3" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/certificate4.jpg" alt="Certificate 4" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="certificate-container">
+                    <img src="./Assets/certificate5.jpg" alt="Certificate 5" class="certificate-image">
+                </div>
+            </div>
+
+            <div class="carousel-arrow-buttons">
+                <div class="carousel-prevbutton arrowbutton" tabindex="0" aria-label="Previous certificate">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="carousel-nextbutton arrowbutton" tabindex="0" aria-label="Next certificate">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carousel = document.querySelector(".carousel");
+            const items = carousel.querySelectorAll(".carousel-item");
+
+            const nav = document.createElement("div");
+            nav.className = "carousel-nav";
+            items.forEach((_, i) => {
+                const btn = document.createElement("div");
+                btn.className = "carousel-button";
+                btn.setAttribute("role", "button");
+                if (i === 0) btn.classList.add("carousel-button-active");
+                nav.appendChild(btn);
+            });
+            carousel.appendChild(nav);
+
+            const buttons = nav.querySelectorAll(".carousel-button");
+            let currentIndex = 0;
+
+            function slideIndex(index) {
+                items.forEach(item => item.classList.remove("carousel-item-active"));
+                buttons.forEach(btn => btn.classList.remove("carousel-button-active"));
+                items[index].classList.add("carousel-item-active");
+                buttons[index].classList.add("carousel-button-active");
+                currentIndex = index;
+            }
+
+            buttons.forEach((button, i) => {
+                button.addEventListener("click", () => slideIndex(i));
+            });
+
+            const prevButton = carousel.querySelector(".carousel-prevbutton");
+            const nextButton = carousel.querySelector(".carousel-nextbutton");
+
+            prevButton.addEventListener("click", () => {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = items.length - 1;
+                slideIndex(newIndex);
+            });
+
+            nextButton.addEventListener("click", () => {
+                let newIndex = currentIndex + 1;
+                if (newIndex > items.length - 1) newIndex = 0;
+                slideIndex(newIndex);
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowLeft") prevButton.click();
+                if (e.key === "ArrowRight") nextButton.click();
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carousel.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            carousel.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) nextButton.click();
+                if (touchEndX > touchStartX + swipeThreshold) prevButton.click();
+            });
+
+            let carouselInterval = setInterval(() => nextButton.click(), 5000);
+
+            carousel.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            carousel.addEventListener('mouseleave', () => {
+                carouselInterval = setInterval(() => nextButton.click(), 5000);
+            });
+
+            slideIndex(currentIndex);
+        });
+    </script>
+</body>
+
+</html>
