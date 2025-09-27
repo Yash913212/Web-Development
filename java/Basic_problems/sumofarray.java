@@ -29,8 +29,9 @@ public class sumofarray {
             arr[i] = sc.nextInt();
             sum += arr[i];
         }
-        
+        double avg = (double) sum/n;
         System.out.println(sum);
+        System.out.println(avg);
         sc.close();
     }
 }
