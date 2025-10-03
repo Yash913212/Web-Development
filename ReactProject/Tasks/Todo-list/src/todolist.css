@@ -1,0 +1,98 @@
+.to-do-list {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.to-do-list h2 {
+    margin-bottom: 18px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.to-do-list input[type="text"] {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+    margin-right: 8px;
+    width: 180px;
+}
+
+.add-button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 4px;
+    transition: background 0.2s;
+}
+
+.add-button:hover {
+    background: #0056b3;
+}
+
+.delete-button {
+    padding: 4px 10px;
+    background: #ff4d4f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.delete-button:hover {
+    background: #b30000;
+}
+
+.move-button {
+    padding: 4px 10px;
+    background: #ffc107;
+    color: #222;
+    border: none;
+    border-radius: 4px;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.move-button:hover {
+    background: #b38f00;
+}
+
+.to-do-list ol {
+    margin-top: 18px;
+    width: 100%;
+    padding-left: 18px;
+}
+
+.to-do-list li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.text {
+    flex: 1;
+    color: #333;
+}
