@@ -1,0 +1,20 @@
+    .card {
+        width: auto;
+        height: auto;
+        gap: 10px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .cards {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+    
+    .cards:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px) scale(1.03);
+    }
