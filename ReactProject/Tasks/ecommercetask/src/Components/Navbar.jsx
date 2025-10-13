@@ -6,10 +6,12 @@ function Navbar() {
     return (
         <div className='navbar'>
             <Link to='/'>
-                <div className='additem'>Add Item</div>
+                <button 
+                className='additem'>Add Item
+                </button>
             </Link>
             <Link to='/showitem' >
-                <div className='showitem'>Show Item</div>
+                <button className='showitem'>Show Item</button>
             </Link>
         </div>
     );

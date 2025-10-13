@@ -6,13 +6,13 @@ import './ShowItem.css'
 import {Link} from "react-router-dom";
 
 function ShowItem() {
-    const {submitItem, setSubmitItem} = useContext(Context);
+    const { submitItem } = useContext(Context);
     return (
         <>
             <div className='showitem-container'>
-                {submitItem.map((ele,index) => (
-                    <Link to={`/itemdetails/${ele.id}`}>
-                        <Item key={index} name={ele.name} brand={ele.brand} price={ele.price} size={ele.size} image={ele.image}/>
+                {submitItem.map((ele) => (
+                    <Link key={ele.id} to={`/itemdetails/${ele.id}`}>
+                        <Item name={ele.name} brand={ele.brand} price={ele.price} size={ele.size} image={ele.image}/>
                     </Link>
                 ))}
             </div>

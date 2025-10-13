@@ -17,8 +17,6 @@ function AddItem() {
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
-        // const name = e.target.name;
-        // const value = e.target.value;
         setItem((prev) => ({
             ...prev,
             [name] : value,
@@ -74,8 +72,8 @@ function AddItem() {
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='Enter Item Name' name='name' value={item.name} onChange={handleInputChange}/>
                     <input type="text" placeholder='Enter Item Brand' name='brand' value={item.brand} onChange={handleInputChange}/>
-                    <input type="text" placeholder='Enter Item Price' name='price' value={item.price} onChange={handleInputChange}/>
-                    <input type="text" placeholder='Enter Item Size' name='size' value={item.size} onChange={handleInputChange}/>
+                    <input type="number" placeholder='Enter Item Price' name='price' value={item.price} onChange={handleInputChange}/>
+                    <input type="number" placeholder='Enter Item Size' name='size' value={item.size} onChange={handleInputChange}/>
                     <input type="file" placeholder='choose image' name='image' ref={fileInputRef} onChange={handleFileChange}/>
                     <div className='buttons'>
                         <button type='submit'>Add Item</button>

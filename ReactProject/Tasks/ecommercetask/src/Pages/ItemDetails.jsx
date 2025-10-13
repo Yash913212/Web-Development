@@ -5,13 +5,13 @@ import {useParams} from "react-router-dom";
 
 function ItemDetails(props) {
 
-    const {submitItem, setSubmitItem} = useContext(Context);
-    const {id} = useParams();
+    const { submitItem } = useContext(Context);
+    const { id } = useParams();
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        const item = submitItem.find(ele => ele.id === parseInt(id));
-        setData(item);
+        const item = submitItem.find((ele) => ele.id === parseInt(id, 10));
+        setData(item || null);
     }, [id, submitItem]);
     if(!data) {
         return <h2>Loading...</h2>
