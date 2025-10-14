@@ -26,7 +26,7 @@ function ItemDetails(props) {
                 <div className='item-details-brand'>{data.brand}</div>
                 <div className='item-details-price'>{data.price}</div>
                 <div className='item-details-size'>{data.size}</div>
-                <div className='item-details-description'>{data.description}</div>
+                <div className='item-details-area'>{data.area}</div>
             </div>
         </div>
     );

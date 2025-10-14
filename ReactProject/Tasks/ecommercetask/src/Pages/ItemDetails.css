@@ -29,6 +29,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    object-fit: fill;
 }
 
 .item-details-info {
@@ -61,7 +62,7 @@
 }
 
 .item-details-size,
-.item-details-description {
+.item-details-area {
     font-size: 1rem;
     color: #333;
     line-height: 1.5;

@@ -12,7 +12,7 @@ function ShowItem() {
             <div className='showitem-container'>
                 {submitItem.map((ele) => (
                     <Link key={ele.id} to={`/itemdetails/${ele.id}`}>
-                        <Item name={ele.name} brand={ele.brand} price={ele.price} size={ele.size} image={ele.image}/>
+                        <Item name={ele.name} brand={ele.brand} price={ele.price} size={ele.size} image={ele.image} area={ele.area}/>
                     </Link>
                 ))}
             </div>

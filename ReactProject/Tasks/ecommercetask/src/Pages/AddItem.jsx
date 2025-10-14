@@ -13,6 +13,7 @@ function AddItem() {
         price : '',
         size : '',
         image : '',
+        area : '',
     });
 
     const handleInputChange = (e) => {
@@ -45,6 +46,7 @@ function AddItem() {
                 price : '',
                 size : '',
                 image : '',
+                area : '',
             });
             if(fileInputRef.current){
                 fileInputRef.current.value = "";
@@ -61,6 +63,7 @@ function AddItem() {
             price : '',
             size : '',
             image : '',
+            area : '',
         })
         if(fileInputRef.current){
             fileInputRef.current.value = "";
@@ -74,6 +77,7 @@ function AddItem() {
                     <input type="text" placeholder='Enter Item Brand' name='brand' value={item.brand} onChange={handleInputChange}/>
                     <input type="number" placeholder='Enter Item Price' name='price' value={item.price} onChange={handleInputChange}/>
                     <input type="number" placeholder='Enter Item Size' name='size' value={item.size} onChange={handleInputChange}/>
+                    <textarea name="area" placeholder='Enter description' onChange={handleFileChange}></textarea>
                     <input type="file" placeholder='choose image' name='image' ref={fileInputRef} onChange={handleFileChange}/>
                     <div className='buttons'>
                         <button type='submit'>Add Item</button>
